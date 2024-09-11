@@ -28,6 +28,7 @@ public class ParticipationPlayerService {
 
     public List<PlayersWithMutualTimeDTO> getPlayersWithMostMutualTime() {
         List<Object[]> results = participationPlayerRepository.findPlayersWithMutualTimeTogether();
+
         return mapToPlayersWithMostMutualTimeDTO(results);
     }
 
@@ -38,6 +39,8 @@ public class ParticipationPlayerService {
 
     private List<PlayersWithMutualTimeDTO> mapToPlayersWithMostMutualTimeDTO(List<Object[]> results) {
         List<PlayersWithMutualTimeDTO> resultDTOs = new ArrayList<>();
+
+
         for (Object[] result : results) {
             String player1 = (String) result[0];
             String player2 = (String) result[1];
@@ -45,10 +48,12 @@ public class ParticipationPlayerService {
             int totalTimeTogether = bigDecimal.intValue();
             resultDTOs.add(new PlayersWithMutualTimeDTO(player1, player2, totalTimeTogether));
         }
+
         return resultDTOs;
     }
 
     private ParticipationPlayerDTO mapToPlayerParticipationDTO(ParticipationPlayer participationPlayer) {
+
         return new ParticipationPlayerDTO(
                 participationPlayer.getId(), participationPlayer.getPlayer().getId(), participationPlayer.getMatch().getId(),
                 participationPlayer.getFromMinutes(),

@@ -19,6 +19,7 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     public List<TeamDTO> getAll() {
+
         return teamRepository.findAll()
                 .stream()
                 .map(this::convertDTO)
@@ -45,19 +46,12 @@ public class TeamService {
 
     private TeamDTO convertDTO(Team  team) {
         List<PlayerTeamDTO> playerInTeamDTOS = team.getPlayers().stream()
-                .map(player -> new PlayerTeamDTO(
-                        player.getId(),
-                        player.getFullName(),
-                        player.getTeamNumber(),
+                .map(player -> new PlayerTeamDTO(player.getId(), player.getFullName(), player.getTeamNumber(),
                         player.getPosition()
                 ))
                 .collect(Collectors.toList());
 
-        return new TeamDTO(
-                team.getId(),
-                team.getName(),
-                team.getManager(),
-                team.getGroupsName(),
+        return new TeamDTO(team.getId(), team.getName(), team.getManager(), team.getGroupsName(),
                 playerInTeamDTOS
         );
     }

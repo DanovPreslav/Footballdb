@@ -15,16 +15,23 @@ public interface ParticipationPlayerRepository {
                 pp2.player_id AS Player2,
                 pp1.game_id AS MatchId,
                 GREATEST(pp1.from_minutes, pp2.from_minutes) AS start_overlap,
+                
                 LEAST(IFNULL(pp1.to_minutes, 90), IFNULL(pp2.to_minutes, 90)) AS end_overlap
+           
             FROM
                 player_participation pp1
+           
             JOIN
+           
                 player_participation pp2 ON pp1.game_id = pp2.game_id
             WHERE
+           
                 pp1.player_id < pp2.player_id
+           
             HAVING
                 start_overlap < end_overlap
         )
+        
         SELECT
            
             p1.full_name AS Player1,
@@ -38,11 +45,13 @@ public interface ParticipationPlayerRepository {
             player p2 ON pp.Player2 = p2.id
         GROUP BY
             pp.Player1, pp.Player2
-        ORDER BY
+         ORDER BY
             total_time_together DESC
         """, nativeQuery = true)
 
+
+
     List<Object[]> findPlayersWithMutualTimeTogether();
 
-    Arrays findAll();
+
 }

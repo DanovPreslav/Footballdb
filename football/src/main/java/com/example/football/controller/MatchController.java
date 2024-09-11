@@ -22,6 +22,8 @@ public class MatchController {
         return matchService.getAll();
     }
 
+
+
     @GetMapping("/tournament-data")
     public List<TournamentsDTO> showAllTournamentMatches() {
         return  matchService.getAllTournamentMatches();

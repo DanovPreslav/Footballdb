@@ -16,8 +16,14 @@ public class ParticipationPlayerController {
     public List<PlayersWithMutualTimeDTO> showPlayersWithMostMutualTime() {
         return participationService.getPlayersWithMostMutualTime();
     }
+
+
+
     @GetMapping("/all")
     public List<ParticipationPlayerDTO> showAllPlayerParticipations() {
         return participationService.getAllPlayerParticipations();
+
+
     }
 }
+

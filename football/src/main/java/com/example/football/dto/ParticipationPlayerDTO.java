@@ -19,37 +19,63 @@ public class ParticipationPlayerDTO {
         return id;
     }
 
+
+
     public void setId(long id) {
         this.id = id;
     }
 
+
     public long getPlayerId() {
         return playerId;
+
     }
+
+
+
 
     public void setPlayerId(long playerId) {
         this.playerId = playerId;
+
     }
+
 
     public long getMeetId() {
         return meetId;
     }
 
+
+
+
+
+
     public void setMeetId(long meetId) {
         this.meetId = meetId;
     }
+
+
+
 
     public int getFromMinutes() {
         return fromMinutes;
     }
 
+
+
+
     public void setFromMinutes(int fromMinutes) {
         this.fromMinutes = fromMinutes;
     }
 
+
+
+
     public int getToMinutes() {
         return toMinutes;
     }
+
+
+
 
     public void setToMinutes(int toMinutes) {
         this.toMinutes = toMinutes;

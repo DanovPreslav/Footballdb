@@ -19,6 +19,7 @@ public class PlayerService {
     }
 
     public List<IndividualPlayerDTO> getAllPlayers() {
+
         return playerRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 

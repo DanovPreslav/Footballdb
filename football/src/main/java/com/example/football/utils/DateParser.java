@@ -10,11 +10,15 @@ public class DateParser {
     public Date parseDateFromMDY(String inputStringDate, String format) {
         SimpleDateFormat inputFormat = new SimpleDateFormat(format);
         Date parsedDate = null;
+
+
         try {
             parsedDate = inputFormat.parse(inputStringDate);
         } catch (ParseException e) {
-            return null;
+
+             return null;
         }
+
         return new Date(parsedDate.getTime());
     }
 }

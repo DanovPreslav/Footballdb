@@ -9,12 +9,19 @@ public class MatchDTO {
     private String score;
 
     public MatchDTO(Long id, Long teamAId, Long teamBId, String date, String score) {
+
         this.id = id;
+
         this.teamAId = teamAId;
+
         this.teamBId = teamBId;
+
         this.date = date;
+
         this.score = score;
     }
+
+
 
     public Long getId() {
         return id;

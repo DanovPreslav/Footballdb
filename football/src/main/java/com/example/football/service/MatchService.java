@@ -41,6 +41,7 @@ public class MatchService {
         List<Object[]> allMatchesData = matchRepository.findAllMatchesData();
         List<TournamentsDTO> matches = new ArrayList<>();
 
+
         for (Object[] result : allMatchesData) {
             Long id = (Long) result[0];
             String teamAName = (String) result[1];
@@ -55,8 +56,10 @@ public class MatchService {
 
             TournamentsDTO match = new TournamentsDTO(id, localDate, teamAName,  teamBName,teamAId,teamBId, score
                     );
+
             matches.add(match);
         }
+
 
         return matches;
     }
@@ -64,12 +67,14 @@ public class MatchService {
 
 
     private MatchDTO converDTO(Match match) {
+
         return new MatchDTO(
                 match.getId(), match.getTeamA().getId(), match.getTeamB().getId(),
                 simpleDateFormat.format(match.getDate()),
                 match.getScore()
-        );
+         );
     }
+
 
     public Optional<Match> findMeetById(Long matchId) {
         return matchRepository.findById(matchId);

@@ -10,9 +10,13 @@ public class IndividualPlayerDTO {
 
     public IndividualPlayerDTO(Long id, String fullName, int teamNumber, String position, Long teamId) {
         this.id = id;
+
         this.fullName = fullName;
+
         this.teamNumber = teamNumber;
+
         this.position = position;
+
         this.teamId = teamId;
     }
 
